@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scannerapp/screens/readqr.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebScreen extends StatefulWidget {
@@ -11,6 +12,14 @@ class WebScreen extends StatefulWidget {
 }
 
 class _ScanScreenState extends State<WebScreen> {
+  @override
+  void initState() {
+    if (widget.qrstr == "") {
+      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => ScanScreen()));
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     WebViewController controller = WebViewController()
@@ -32,11 +41,11 @@ class _ScanScreenState extends State<WebScreen> {
           },
         ),
       )
-      ..loadRequest(Uri.parse("${widget.qrstr.toString()}"));
+      ..loadRequest(Uri.parse( "${widget.qrstr.toString()}KEY_ID=b326b5062b2f0e69046810717534cb09"));
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('RAS'),
+        title: Text('EZAttend'),
         centerTitle: true,
         foregroundColor: Colors.blue,
         elevation: 0,

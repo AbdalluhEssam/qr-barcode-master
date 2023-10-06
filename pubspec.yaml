@@ -26,6 +26,7 @@ dependencies:
   flutter_barcode_scanner: ^2.0.0
   barcode_widget: ^2.0.1
   webview_flutter: ^4.0.5
+  internet_connection_checker: ^1.0.0+1
 
 
 
